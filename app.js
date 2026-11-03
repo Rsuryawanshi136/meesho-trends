@@ -208,7 +208,7 @@
       const top = ranked.slice(0, 10);
       spotlight(top[0], 'Top seller today', { text: '+' + fmt.format(top[0]?.new_reviews || 0), label: 'New reviews since yesterday' });
       $('grid-title').textContent = 'Top 10 sellers today';
-      $('grid-sub').textContent = 'Ranked by new reviews since the previous morning: the best sign of daily sales.';
+      $('grid-sub').textContent = 'Ranked by new reviews since the previous day: the best sign of daily sales.';
       fillGrid(top, { label: 'New reviews', text: (p) => '+' + fmt.format(p.new_reviews), value: (p) => p.new_reviews });
       $('board-title').textContent = 'Categories gaining fastest';
       $('board-sub').textContent = 'New reviews since yesterday on each category\'s top listings. Tap one to filter.';

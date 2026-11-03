@@ -397,7 +397,7 @@
       spokes.append(l);
     });
     const center = document.createElementNS(SVGNS, 'g');
-    center.innerHTML = '<circle r="19" fill="var(--card)"/><use href="#i-heart" x="-9" y="-9" width="18" height="18" fill="var(--ink)" stroke="var(--ink)"/>';
+    center.innerHTML = '<circle r="19" fill="var(--card-solid)"/><use href="#i-heart" x="-9" y="-9" width="18" height="18" fill="var(--ink)" stroke="var(--ink)"/>';
     svg.append(glow, petals, spokes, labels, center);
     $('flower').replaceChildren(svg);
     $('flower').setAttribute('aria-label', 'Category health: ' + keys.map((k) => `${k} ${scores[k] == null ? 'not yet available' : Math.round(scores[k]) + ' out of 100'}`).join(', '));

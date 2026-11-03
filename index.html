@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meesho Trend Report</title>
+  <meta name="description" content="Daily research on what sells on Meesho: today's fastest sellers and all-time best sellers in 10 categories.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Meesho Trend Report, back to top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 17l5-6 4 3 7-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-name">Trend Report <small>for Meesho sellers</small></span>
+      </a>
+      <span class="updated" id="updated">Loading…</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <p class="eyebrow" id="day-label">Daily research</p>
+      <h1 id="takeaway">What is selling on Meesho, every morning.</h1>
+      <dl class="stats">
+        <div><dt>Products tracked</dt><dd id="stat-products">—</dd></div>
+        <div><dt>Categories</dt><dd id="stat-categories">—</dd></div>
+        <div><dt>Days of history</dt><dd id="stat-days">—</dd></div>
+      </dl>
+    </section>
+
+    <div class="toolbar">
+      <div class="wrap toolbar-inner">
+        <div class="tabs" role="tablist" aria-label="Time range">
+          <button role="tab" id="tab-today" aria-controls="view" aria-selected="true" data-tab="today">
+            <b>Today</b><span>Selling fastest now</span>
+          </button>
+          <button role="tab" id="tab-alltime" aria-controls="view" aria-selected="false" data-tab="alltime">
+            <b>All-time</b><span>Most sold overall</span>
+          </button>
+        </div>
+        <nav class="chips" id="chips" aria-label="Category"></nav>
+      </div>
+    </div>
+
+    <div class="wrap" id="view" role="tabpanel" aria-labelledby="tab-today">
+      <section class="note" id="note" hidden>
+        <div class="note-head">
+          <h2 id="note-title"></h2>
+          <span class="fit" id="note-fit"></span>
+        </div>
+        <p id="note-text"></p>
+      </section>
+
+      <section class="waiting" id="waiting" hidden>
+        <div class="waiting-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h2>Daily sales start after tomorrow's 8 AM run</h2>
+          <p>Meesho doesn't publish daily sales, so this tab compares each morning's review counts with the day before. Today's counts are saved; the first comparison appears tomorrow. Until then, see what Meesho is pushing below, or switch to <button class="linklike" data-goto="alltime">All-time</button>.</p>
+        </div>
+      </section>
+
+      <section class="spotlight" id="spotlight" aria-label="Number one product"></section>
+
+      <section class="block" id="grid-block">
+        <div class="block-head">
+          <h2 id="grid-title">Top 10</h2>
+          <p class="muted" id="grid-sub"></p>
+        </div>
+        <ol class="grid" id="grid"></ol>
+      </section>
+
+      <div class="two">
+        <section class="block panel" id="board-block">
+          <div class="block-head">
+            <h2 id="board-title">Categories</h2>
+            <p class="muted" id="board-sub"></p>
+          </div>
+          <ol class="board" id="board"></ol>
+        </section>
+        <section class="block panel" id="types-block">
+          <div class="block-head">
+            <h2>What type of product sells</h2>
+            <p class="muted">Total reviews by product type.</p>
+          </div>
+          <ol class="board" id="types"></ol>
+        </section>
+      </div>
+
+      <section class="block" id="trend-block">
+        <div class="block-head">
+          <h2>Trending now</h2>
+          <p class="muted">Newer listings Meesho places near the top today, with fewer reviews than most of their category. Early signs of what's starting to sell.</p>
+        </div>
+        <ol class="strip" id="trending"></ol>
+      </section>
+    </div>
+
+    <section class="wrap two" id="plan">
+      <div class="panel block">
+        <div class="block-head">
+          <h2>Beginner shortlist</h2>
+          <p class="muted">Real demand and an easy start: light to ship, no sizes, few complaints, no brand licence needed.</p>
+        </div>
+        <ul class="checks" id="shortlist"></ul>
+        <p class="avoid" id="avoid"></p>
+      </div>
+      <div class="panel block">
+        <div class="block-head">
+          <h2>Coming up</h2>
+          <p class="muted">Festivals and seasons that move demand.</p>
+        </div>
+        <ol class="calendar">
+          <li><time>6 Nov</time><span><b>Dhanteras.</b> Utensils, pooja items, gifting.</span></li>
+          <li><time>8 Nov</time><span><b>Diwali.</b> Diyas, candles, lights, decor, ethnic wear.</span></li>
+          <li><time>10–11 Nov</time><span><b>Bhai Dooj.</b> Gift sets and hampers.</span></li>
+          <li><time>13–16 Nov</time><span><b>Chhath Puja.</b> Chunri and bandhani sarees, pooja items.</span></li>
+          <li><time>Late Nov</time><span><b>Weddings and winter.</b> Jewellery sets, lehengas, hoodies, thermals, shawls.</span></li>
+        </ol>
+        <p class="muted small">Dates from festival calendars such as <a href="https://www.ibtimes.co.in/diwali-2026-date-five-day-festival-calendar-dhanteras-bhai-dooj-907724" target="_blank" rel="noopener">IBTimes</a>. Check a local panchang before stocking.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <details>
+      <summary>How this report works</summary>
+      <ul>
+        <li>Every morning at 8 AM, the first page of two public Meesho listings per category is read, in Meesho's default order. Nothing behind a login is used.</li>
+        <li>Meesho doesn't publish sales. <b>All-time</b> ranks by each product's total reviews. <b>Today</b> ranks by reviews gained since the previous morning, which tracks daily sales.</li>
+        <li>Only some buyers leave reviews, so compare products with each other rather than reading the numbers as exact order counts.</li>
+        <li>The written analysis is refreshed from each day's data.</li>
+      </ul>
+    </details>
+    <p class="muted small">Independent research. Not affiliated with or endorsed by Meesho. Product names, prices and photos belong to their sellers and link to the listing on meesho.com.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

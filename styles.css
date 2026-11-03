@@ -2,34 +2,37 @@
    Cards blur what is behind them; inset panels are lighter glass; black pills for actions; a red→amber→green
    "heat" gradient is used for scale (price bar, activity dots, health petals). */
 :root {
-  --wall-1: #fbe3ee;
-  --wall-2: #e1e7fb;
-  --wall-3: #e0f3ec;
-  --wall-4: #fbefe0;
-  --wall-base: #f3f4f8;
-  --card: rgba(255, 255, 255, .6);
-  --card-solid: rgba(255, 255, 255, .86);
+  /* Palette: deep red #C72E29, coral #E24D3C, peach #FCE8D6, cream #FEF7E9 */
+  --wall-1: #fce8d6;
+  --wall-2: #f8cfc4;
+  --wall-3: #fef7e9;
+  --wall-4: #fbd9c9;
+  --wall-base: #fef7e9;
+  --card: rgba(255, 252, 246, .62);
+  --card-solid: rgba(255, 252, 246, .9);
   --card-border: rgba(255, 255, 255, .9);
-  --inset: rgba(255, 255, 255, .62);
-  --inset-2: rgba(120, 130, 160, .14);
-  --ink: #14161c;
-  --muted: #5d6474;
-  --line: rgba(20, 22, 28, .1);
-  --pill: #14161c;
-  --pill-ink: #ffffff;
-  --good: #16884a;
-  --good-soft: rgba(31, 157, 85, .14);
-  --bad: #c93636;
-  --bad-soft: rgba(214, 69, 69, .13);
+  --inset: rgba(254, 247, 233, .7);
+  --inset-2: rgba(199, 46, 41, .1);
+  --ink: #2b1412;
+  --muted: #7a5a52;
+  --line: rgba(199, 46, 41, .14);
+  --pill: #c72e29;
+  --pill-ink: #fef7e9;
+  --accent: #c72e29;
+  --accent-soft: #fce8d6;
+  --good: #1d7f48;
+  --good-soft: rgba(29, 127, 72, .12);
+  --bad: #c72e29;
+  --bad-soft: rgba(199, 46, 41, .12);
   --amber: #f2a541;
-  --heat-lo: #f6866f;
-  --heat-mid: #f9c56b;
-  --heat-hi: #8fdc8f;
-  --violet: #8f78ef;
+  --heat-lo: #e24d3c;
+  --heat-mid: #f7b27a;
+  --heat-hi: #9ad49a;
+  --violet: #e24d3c;
   --glass-blur: blur(30px) saturate(140%);
-  --shadow-card: 0 8px 32px rgba(60, 70, 110, .08), inset 0 1px 0 rgba(255, 255, 255, .9);
-  --shadow-lift: 0 18px 40px rgba(40, 45, 70, .2), 0 2px 6px rgba(40, 45, 70, .08);
-  --shadow-soft: 0 4px 16px rgba(60, 70, 110, .1);
+  --shadow-card: 0 8px 32px rgba(199, 46, 41, .08), inset 0 1px 0 rgba(255, 255, 255, .9);
+  --shadow-lift: 0 18px 40px rgba(120, 30, 25, .18), 0 2px 6px rgba(120, 30, 25, .08);
+  --shadow-soft: 0 4px 16px rgba(199, 46, 41, .1);
   --r-card: 30px;
   --r-inset: 20px;
   --font: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -37,27 +40,29 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --wall-1: #2e2440; --wall-2: #1e2a4a; --wall-3: #1a3533; --wall-4: #3a2a26; --wall-base: #111319;
-    --card: rgba(30, 33, 48, .5); --card-solid: rgba(38, 42, 60, .9); --card-border: rgba(255, 255, 255, .12);
-    --inset: rgba(255, 255, 255, .07); --inset-2: rgba(255, 255, 255, .12);
-    --ink: #f2f3f8; --muted: #aab0c0; --line: rgba(255, 255, 255, .12);
-    --pill: #f2f3f8; --pill-ink: #14161c; --good: #5ad99a; --good-soft: rgba(90, 217, 154, .15); --bad: #ff8a8a; --bad-soft: rgba(255, 138, 138, .15);
-    --violet: #b7a6ff;
-    --shadow-card: 0 10px 40px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .08);
-    --shadow-lift: 0 18px 40px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 4px 16px rgba(0, 0, 0, .3);
+    --wall-1: #4a1614; --wall-2: #3a1a12; --wall-3: #2a1210; --wall-4: #4a2418; --wall-base: #160c0b;
+    --card: rgba(40, 22, 20, .55); --card-solid: rgba(52, 28, 25, .92); --card-border: rgba(254, 247, 233, .1);
+    --inset: rgba(254, 247, 233, .06); --inset-2: rgba(254, 247, 233, .12);
+    --ink: #fef7e9; --muted: #d4bfae; --line: rgba(254, 247, 233, .12);
+    --pill: #e24d3c; --pill-ink: #fef7e9; --accent: #e24d3c; --accent-soft: rgba(226, 77, 60, .18);
+    --good: #6fd69b; --good-soft: rgba(111, 214, 155, .15); --bad: #ff8b7e; --bad-soft: rgba(255, 139, 126, .15);
+    --violet: #e24d3c;
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(254, 247, 233, .06);
+    --shadow-lift: 0 18px 40px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 4px 16px rgba(0, 0, 0, .3);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --wall-1: #2e2440; --wall-2: #1e2a4a; --wall-3: #1a3533; --wall-4: #3a2a26; --wall-base: #111319;
-  --card: rgba(30, 33, 48, .5); --card-solid: rgba(38, 42, 60, .9); --card-border: rgba(255, 255, 255, .12);
-  --inset: rgba(255, 255, 255, .07); --inset-2: rgba(255, 255, 255, .12);
-  --ink: #f2f3f8; --muted: #aab0c0; --line: rgba(255, 255, 255, .12);
-  --pill: #f2f3f8; --pill-ink: #14161c; --good: #5ad99a; --good-soft: rgba(90, 217, 154, .15); --bad: #ff8a8a; --bad-soft: rgba(255, 138, 138, .15);
-  --violet: #b7a6ff;
-  --shadow-card: 0 10px 40px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .08);
-  --shadow-lift: 0 18px 40px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 4px 16px rgba(0, 0, 0, .3);
-  color-scheme: dark;
+  --wall-1: #4a1614; --wall-2: #3a1a12; --wall-3: #2a1210; --wall-4: #4a2418; --wall-base: #160c0b;
+    --card: rgba(40, 22, 20, .55); --card-solid: rgba(52, 28, 25, .92); --card-border: rgba(254, 247, 233, .1);
+    --inset: rgba(254, 247, 233, .06); --inset-2: rgba(254, 247, 233, .12);
+    --ink: #fef7e9; --muted: #d4bfae; --line: rgba(254, 247, 233, .12);
+    --pill: #e24d3c; --pill-ink: #fef7e9; --accent: #e24d3c; --accent-soft: rgba(226, 77, 60, .18);
+    --good: #6fd69b; --good-soft: rgba(111, 214, 155, .15); --bad: #ff8b7e; --bad-soft: rgba(255, 139, 126, .15);
+    --violet: #e24d3c;
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(254, 247, 233, .06);
+    --shadow-lift: 0 18px 40px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 4px 16px rgba(0, 0, 0, .3);
+    color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -88,7 +93,7 @@ h1, h2, h3, p { margin: 0; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 button, input, select { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 .muted { color: var(--muted); }
@@ -113,7 +118,7 @@ button, input, select { font: inherit; color: inherit; }
 .select-pill:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 .takeaway { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border-radius: 22px; padding: 16px 20px; }
-.takeaway-icon { width: 34px; height: 34px; border-radius: 11px; background: #fff3d6; color: #b7791f; display: grid; place-items: center; flex: none; }
+.takeaway-icon { width: 34px; height: 34px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: none; }
 .takeaway p { max-width: 90ch; font-weight: 500; }
 
 /* Bento */
@@ -150,9 +155,9 @@ button, input, select { font: inherit; color: inherit; }
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 .legend i, .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 .d0 { background: var(--inset-2); }
-.d1 { background: #b9c3cf; }
-.d2 { background: #9be0a3; }
-.d3 { background: #3fbf5c; }
+.d1 { background: #e7b8a8; }
+.d2 { background: #f08a74; }
+.d3 { background: #c72e29; }
 .activity-body { display: grid; grid-template-columns: minmax(7rem, auto) 1fr; gap: 12px; align-items: end; }
 .activity-body h3 { font-size: 1.15rem; line-height: 1.25; }
 .dots-wrap { display: grid; gap: 6px; min-width: 0; overflow: hidden; }
@@ -224,11 +229,11 @@ button, input, select { font: inherit; color: inherit; }
 .petal-label .n { font-size: 10.5px; fill: var(--muted); }
 .insight { background: var(--card-solid) !important; justify-self: end; margin: -8px 4px 4px; width: min(17rem, 100%); background: var(--card); border-radius: 16px; padding: 12px 14px; display: grid; gap: 6px; box-shadow: 0 6px 18px rgba(0, 0, 0, .06); }
 .insight-title { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .85rem; }
-.insight-title .ic { color: #e0a100; width: 17px; height: 17px; }
+.insight-title .ic { color: var(--accent); width: 17px; height: 17px; }
 .insight p { font-size: .8rem; color: var(--muted); line-height: 1.45; }
 .fit { width: fit-content; font-size: .74rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
 .fit.good { background: var(--good-soft); color: var(--good); }
-.fit.mid { background: #fff1d6; color: #a86200; }
+.fit.mid { background: var(--accent-soft); color: #a8541d; }
 .fit.hard { background: var(--bad-soft); color: var(--bad); }
 
 /* Trending strip */

@@ -2,10 +2,10 @@
    black pill actions, one blue accent, and a soft red→amber→green "heat" scale (price bar, health petals). */
 :root {
   /* Clean and light: white cards on a soft grey page, one calm blue accent */
-  --wall-base: #f5f6f8;
+  --wall-base: #ffffff;
   --card: #ffffff;
   --card-solid: #ffffff;
-  --card-border: #eceef2;
+  --card-border: #e6e8ee;
   --inset: #f7f8fa;
   --inset-2: #eef0f3;
   --ink: #111827;

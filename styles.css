@@ -1,13 +1,18 @@
-/* Layout: a clean two-column bento of white rounded cards on a soft grey page, light inset panels,
-   black pill actions, one blue accent, and a soft red→amber→green "heat" scale (price bar, health petals). */
+/* Layout: a clean two-column bento of frosted white glass cards on a white page with faint colour glows,
+   light inset panels, black pill actions, one blue accent, and a soft red→amber→green "heat" scale. */
 :root {
-  /* Clean and light: white cards on a soft grey page, one calm blue accent */
+  /* Clean white glass: frosted white cards over a white page with a few very faint colour glows */
   --wall-base: #ffffff;
-  --card: #ffffff;
-  --card-solid: #ffffff;
-  --card-border: #e6e8ee;
-  --inset: #f7f8fa;
-  --inset-2: #eef0f3;
+  --glow-1: rgba(147, 180, 255, .28);
+  --glow-2: rgba(196, 168, 255, .22);
+  --glow-3: rgba(134, 226, 196, .22);
+  --glow-4: rgba(255, 196, 168, .2);
+  --card: rgba(255, 255, 255, .55);
+  --card-solid: rgba(255, 255, 255, .88);
+  --card-border: rgba(255, 255, 255, .95);
+  --card-edge: rgba(17, 24, 39, .06);
+  --inset: rgba(241, 244, 249, .72);
+  --inset-2: rgba(17, 24, 39, .06);
   --ink: #111827;
   --muted: #6b7280;
   --line: #e7e9ee;
@@ -24,8 +29,8 @@
   --heat-mid: #fbd38d;
   --heat-hi: #9ae6b4;
   --violet: #2563eb;
-  --glass-blur: none;
-  --shadow-card: 0 1px 2px rgba(17, 24, 39, .04), 0 4px 16px rgba(17, 24, 39, .04);
+  --glass-blur: blur(26px) saturate(160%);
+  --shadow-card: 0 0 0 1px var(--card-edge), 0 8px 30px rgba(17, 24, 39, .06), inset 0 1px 0 rgba(255, 255, 255, .95);
   --shadow-lift: 0 16px 36px rgba(17, 24, 39, .12), 0 2px 6px rgba(17, 24, 39, .06);
   --shadow-soft: 0 2px 8px rgba(17, 24, 39, .06);
   --r-card: 26px;
@@ -36,26 +41,28 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --wall-base: #0f1115;
-    --card: #171a20; --card-solid: #1d2128; --card-border: #262a32;
-    --inset: #1d2128; --inset-2: #2a2f38;
+    --card: rgba(28, 31, 38, .55); --card-solid: rgba(34, 38, 46, .92); --card-border: rgba(255, 255, 255, .1); --card-edge: rgba(255, 255, 255, .04);
+    --glow-1: rgba(70, 100, 200, .25); --glow-2: rgba(120, 80, 200, .2); --glow-3: rgba(40, 140, 120, .18); --glow-4: rgba(170, 90, 60, .15);
+    --inset: rgba(255, 255, 255, .05); --inset-2: rgba(255, 255, 255, .1);
     --ink: #f3f4f6; --muted: #9ca3af; --line: #2a2f38;
     --pill: #f3f4f6; --pill-ink: #111827; --accent: #60a5fa; --accent-soft: rgba(96, 165, 250, .14);
     --good: #4ade80; --good-soft: rgba(74, 222, 128, .14); --bad: #f87171; --bad-soft: rgba(248, 113, 113, .14);
     --violet: #60a5fa;
-    --shadow-card: none;
+    --shadow-card: 0 8px 30px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .06);
     --shadow-lift: 0 16px 36px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 2px 8px rgba(0, 0, 0, .3);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --wall-base: #0f1115;
-    --card: #171a20; --card-solid: #1d2128; --card-border: #262a32;
-    --inset: #1d2128; --inset-2: #2a2f38;
+    --card: rgba(28, 31, 38, .55); --card-solid: rgba(34, 38, 46, .92); --card-border: rgba(255, 255, 255, .1); --card-edge: rgba(255, 255, 255, .04);
+    --glow-1: rgba(70, 100, 200, .25); --glow-2: rgba(120, 80, 200, .2); --glow-3: rgba(40, 140, 120, .18); --glow-4: rgba(170, 90, 60, .15);
+    --inset: rgba(255, 255, 255, .05); --inset-2: rgba(255, 255, 255, .1);
     --ink: #f3f4f6; --muted: #9ca3af; --line: #2a2f38;
     --pill: #f3f4f6; --pill-ink: #111827; --accent: #60a5fa; --accent-soft: rgba(96, 165, 250, .14);
     --good: #4ade80; --good-soft: rgba(74, 222, 128, .14); --bad: #f87171; --bad-soft: rgba(248, 113, 113, .14);
     --violet: #60a5fa;
-    --shadow-card: none;
+    --shadow-card: 0 8px 30px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .06);
     --shadow-lift: 0 16px 36px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3); --shadow-soft: 0 2px 8px rgba(0, 0, 0, .3);
     color-scheme: dark;
 }
@@ -64,6 +71,15 @@
 [hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; min-height: 100vh; background: var(--wall-base); color: var(--ink); font: 400 15px/1.5 var(--font); }
+/* Very faint colour glows on the white page, so the frosted cards have something soft to blur */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(34vmax 34vmax at 8% 12%, var(--glow-1), transparent 70%),
+    radial-gradient(30vmax 30vmax at 92% 20%, var(--glow-2), transparent 70%),
+    radial-gradient(36vmax 36vmax at 85% 90%, var(--glow-3), transparent 70%),
+    radial-gradient(30vmax 30vmax at 10% 85%, var(--glow-4), transparent 70%);
+}
 .glass, .card, .takeaway, .foot details, .select-pill {
   background: var(--card);
   -webkit-backdrop-filter: var(--glass-blur);

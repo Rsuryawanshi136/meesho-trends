@@ -2,15 +2,15 @@
    Cards blur what is behind them; inset panels are lighter glass; black pills for actions; a red→amber→green
    "heat" gradient is used for scale (price bar, activity dots, health petals). */
 :root {
-  --wall-1: #ff9cc6;
-  --wall-2: #8fa8ff;
-  --wall-3: #8fe6c9;
-  --wall-4: #ffc884;
-  --wall-base: #e6e3fb;
-  --card: rgba(255, 255, 255, .5);
+  --wall-1: #fbe3ee;
+  --wall-2: #e1e7fb;
+  --wall-3: #e0f3ec;
+  --wall-4: #fbefe0;
+  --wall-base: #f3f4f8;
+  --card: rgba(255, 255, 255, .6);
   --card-solid: rgba(255, 255, 255, .86);
-  --card-border: rgba(255, 255, 255, .75);
-  --inset: rgba(255, 255, 255, .5);
+  --card-border: rgba(255, 255, 255, .9);
+  --inset: rgba(255, 255, 255, .62);
   --inset-2: rgba(120, 130, 160, .14);
   --ink: #14161c;
   --muted: #5d6474;
@@ -26,8 +26,8 @@
   --heat-mid: #f9c56b;
   --heat-hi: #8fdc8f;
   --violet: #8f78ef;
-  --glass-blur: blur(28px) saturate(180%);
-  --shadow-card: 0 10px 40px rgba(60, 70, 110, .14), inset 0 1px 0 rgba(255, 255, 255, .8);
+  --glass-blur: blur(30px) saturate(140%);
+  --shadow-card: 0 8px 32px rgba(60, 70, 110, .08), inset 0 1px 0 rgba(255, 255, 255, .9);
   --shadow-lift: 0 18px 40px rgba(40, 45, 70, .2), 0 2px 6px rgba(40, 45, 70, .08);
   --shadow-soft: 0 4px 16px rgba(60, 70, 110, .1);
   --r-card: 30px;
@@ -37,7 +37,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --wall-1: #5b2a6e; --wall-2: #1f3a8a; --wall-3: #0f5a5a; --wall-4: #7a3b2a; --wall-base: #0c0e1a;
+    --wall-1: #2e2440; --wall-2: #1e2a4a; --wall-3: #1a3533; --wall-4: #3a2a26; --wall-base: #111319;
     --card: rgba(30, 33, 48, .5); --card-solid: rgba(38, 42, 60, .9); --card-border: rgba(255, 255, 255, .12);
     --inset: rgba(255, 255, 255, .07); --inset-2: rgba(255, 255, 255, .12);
     --ink: #f2f3f8; --muted: #aab0c0; --line: rgba(255, 255, 255, .12);
@@ -49,7 +49,7 @@
   }
 }
 :root[data-theme="dark"] {
-  --wall-1: #5b2a6e; --wall-2: #1f3a8a; --wall-3: #0f5a5a; --wall-4: #7a3b2a; --wall-base: #0c0e1a;
+  --wall-1: #2e2440; --wall-2: #1e2a4a; --wall-3: #1a3533; --wall-4: #3a2a26; --wall-base: #111319;
   --card: rgba(30, 33, 48, .5); --card-solid: rgba(38, 42, 60, .9); --card-border: rgba(255, 255, 255, .12);
   --inset: rgba(255, 255, 255, .07); --inset-2: rgba(255, 255, 255, .12);
   --ink: #f2f3f8; --muted: #aab0c0; --line: rgba(255, 255, 255, .12);
@@ -73,7 +73,7 @@ body::before {
     radial-gradient(40vmax 40vmax at 78% 82%, var(--wall-3), transparent 70%),
     radial-gradient(36vmax 36vmax at 18% 88%, var(--wall-4), transparent 70%),
     var(--wall-base);
-  filter: saturate(120%);
+  filter: saturate(100%);
   animation: drift 40s ease-in-out infinite alternate;
 }
 @keyframes drift { to { transform: translate3d(3vmax, -2vmax, 0) rotate(6deg) scale(1.05); } }

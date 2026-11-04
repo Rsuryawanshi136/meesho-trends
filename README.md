@@ -1,3 +1,3 @@
-# Meesho Trend Report
+# BuyerMind
 
-Daily research on what sells on Meesho, updated every morning. Independent; not affiliated with Meesho.
+Daily research on what Indian shoppers are buying across online marketplaces. Independent; not affiliated with any marketplace.

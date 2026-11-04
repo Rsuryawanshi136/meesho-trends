@@ -3,141 +3,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Meesho Trend Report</title>
-  <meta name="description" content="Daily research on what sells on Meesho: today's fastest sellers and all-time best sellers in 10 categories.">
+  <title>BuyerMind</title>
+  <meta name="description" content="Daily research on what Indian shoppers are buying across online marketplaces, written for people starting to sell.">
   <meta name="referrer" content="no-referrer">
   <meta name="color-scheme" content="light">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&family=Figtree:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script>
+    // Older links pointed at the Meesho report on this address.
+    if (/^#(today|alltime)/.test(location.hash)) location.replace('meesho.html' + location.hash);
+  </script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="c-ethnic" viewBox="0 0 24 24"><path d="M9 3h6l1.5 4-2 1.5L17 21H7l2.5-12.5-2-1.5z"/></symbol>
-    <symbol id="c-western" viewBox="0 0 24 24"><path d="M8 3l-4 3 2 4 2-1v12h8V9l2 1 2-4-4-3c-.5 1.7-2 2.5-4 2.5S8.5 4.7 8 3z"/></symbol>
-    <symbol id="c-mens" viewBox="0 0 24 24"><path d="M9 3l3 3 3-3 5 3-2 4-2-1v12H8V9l-2 1-2-4z"/><path d="M12 6v15"/></symbol>
-    <symbol id="c-kids" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c.5-4 3.2-6 7-6s6.5 2 7 6"/></symbol>
-    <symbol id="c-home" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/></symbol>
-    <symbol id="c-beauty" viewBox="0 0 24 24"><rect x="9" y="10" width="6" height="11" rx="1.5"/><path d="M10 10V6l4-3v7"/></symbol>
-    <symbol id="c-jewel" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 5 3-5"/></symbol>
-    <symbol id="c-bags" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2.5"/><path d="M9 8V6a3 3 0 016 0v2"/></symbol>
-    <symbol id="c-elec" viewBox="0 0 24 24"><path d="M5 13a7 7 0 0114 0"/><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></symbol>
-    <symbol id="c-health" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z"/><path d="M8 12h2.5l1-2 2 4 1-2H16"/></symbol>
     <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
   </svg>
 
   <header class="nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="./">
       <span class="brand-mark" aria-hidden="true"><svg class="ic"><use href="#i-trend"/></svg></span>
-      <span>Trend Report</span>
+      <span>BuyerMind</span>
     </a>
     <nav class="links" aria-label="Sections">
-      <a href="#sellers">Top sellers</a>
-      <a href="#categories">Categories</a>
-      <a href="#shortlist">Shortlist</a>
+      <a href="#marketplaces">Marketplaces</a>
+      <a href="#how">How It Works</a>
     </nav>
-    <label class="pick">
-      <span class="sr">Choose a category</span>
-      <select id="category"></select>
-    </label>
   </header>
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow" id="updated">Updated daily</p>
-      <h1>See What's Selling,<br>and Why, Every Day.</h1>
-      <p class="hero-sub">A daily read of what shoppers are buying on Meesho across 10 categories, written for people starting to sell.</p>
-      <a class="btn" href="#sellers">See Top Sellers</a>
+      <p class="eyebrow">Daily marketplace research for India</p>
+      <h1>Know What Buyers<br>Want, Every Day.</h1>
+      <p class="hero-sub">See what shoppers are choosing across online marketplaces, explained in plain language for people starting to sell.</p>
+      <a class="btn" href="#marketplaces">Choose a Marketplace</a>
       <div class="collage" id="collage" aria-hidden="true"></div>
     </section>
 
-    <section class="stats" aria-label="Key numbers">
-      <div><b id="s-new">—</b><span id="s-new-label">new reviews since yesterday</span></div>
-      <div><b id="s-reviews">—</b><span>total reviews on top listings</span></div>
-      <div><b id="s-price">—</b><span>typical price</span></div>
-      <div><b id="s-rating">—</b><span id="s-rating-label">average rating</span></div>
+    <section class="head" id="marketplaces">
+      <p class="eyebrow">Marketplaces</p>
+      <h2>Pick Where You Want to Look</h2>
+      <p class="head-sub">Each marketplace has its own report, because their numbers aren't directly comparable.</p>
     </section>
 
-    <section class="head" id="sellers">
-      <p class="eyebrow">Top Sellers</p>
-      <h2 id="sellers-title">What Sold Most Today</h2>
-      <p class="head-sub" id="sellers-sub"></p>
-      <div class="controls">
-        <div class="toggle" role="tablist" aria-label="Time range">
-          <button role="tab" data-tab="today" aria-selected="true">Today</button>
-          <button role="tab" data-tab="alltime" aria-selected="false">All-time</button>
+    <ul class="markets">
+      <li class="bg-0">
+        <a class="market" href="meesho.html">
+          <span class="status live">Live, updated daily</span>
+          <h3>Meesho</h3>
+          <p>Today's fastest sellers and all-time best sellers across 10 categories, with a plain-language read of each.</p>
+          <p class="market-top" id="meesho-top" hidden></p>
+          <span class="btn">Open Meesho Report</span>
+        </a>
+      </li>
+      <li class="bg-1">
+        <div class="market">
+          <span class="status">Coming next</span>
+          <h3>Amazon India</h3>
+          <p>Amazon's own best-seller rankings, tracked daily to show which products are climbing.</p>
         </div>
-        <label class="search">
-          <span class="sr">Search products</span>
-          <input id="search" type="search" placeholder="Search products" autocomplete="off">
-        </label>
-      </div>
-    </section>
-    <ol class="mosaic" id="mosaic"></ol>
+      </li>
+      <li class="bg-3">
+        <div class="market">
+          <span class="status">Planned</span>
+          <h3>Flipkart</h3>
+          <p>Popular products, ratings and price levels across the main categories.</p>
+        </div>
+      </li>
+      <li class="bg-4">
+        <div class="market">
+          <span class="status">Planned</span>
+          <h3>Google Shopping</h3>
+          <p>A price comparison across stores, to help you see where a product could sit.</p>
+        </div>
+      </li>
+    </ul>
 
-    <section class="head" id="categories">
-      <p class="eyebrow">Categories</p>
-      <h2>Where the Buyers Are</h2>
-      <p class="head-sub">Tap a category to filter the whole page. Tap it again to see everything.</p>
+    <section class="head" id="how">
+      <p class="eyebrow">How It Works</p>
+      <h2>From Public Listings to Plain Answers</h2>
     </section>
-    <ol class="cats" id="cats"></ol>
-
-    <section class="blocks">
-      <div class="block peach">
-        <h3>What Type of Product Sells</h3>
-        <p class="block-sub">Total reviews by product type.</p>
-        <ol class="bars" id="types"></ol>
-      </div>
-      <div class="block blue">
-        <h3>Category Health</h3>
-        <p class="block-sub" id="health-sub">Scores out of 100 compared with other categories. Higher is better for a beginner.</p>
-        <ol class="bars" id="health"></ol>
-      </div>
-    </section>
-
-    <section class="head">
-      <p class="eyebrow">Trending Now</p>
-      <h2>Starting to Sell</h2>
-      <p class="head-sub">Newer listings Meesho is placing near the top of its pages today.</p>
-    </section>
-    <ol class="strip" id="strip"></ol>
-
-    <section class="head" id="shortlist">
-      <p class="eyebrow">Plan Ahead</p>
-      <h2>Where to Start</h2>
-    </section>
-    <section class="blocks">
-      <div class="block mint">
-        <h3>Beginner Shortlist</h3>
-        <p class="block-sub">Real demand and an easy start: light to ship, no sizes, few complaints, no brand licence needed.</p>
-        <ul class="list" id="short"></ul>
-        <p class="avoid" id="avoid"></p>
-      </div>
-      <div class="block pink">
-        <h3>Coming Up</h3>
-        <p class="block-sub">Festivals and seasons that move demand.</p>
-        <ol class="cal">
-          <li><time>6 Nov</time><span><b>Dhanteras.</b> Utensils, pooja items, gifting.</span></li>
-          <li><time>8 Nov</time><span><b>Diwali.</b> Diyas, candles, lights, decor, ethnic wear.</span></li>
-          <li><time>10–11 Nov</time><span><b>Bhai Dooj.</b> Gift sets and hampers.</span></li>
-          <li><time>13–16 Nov</time><span><b>Chhath Puja.</b> Chunri and bandhani sarees, pooja items.</span></li>
-          <li><time>Late Nov</time><span><b>Weddings and winter.</b> Jewellery sets, lehengas, hoodies, thermals.</span></li>
-        </ol>
-      </div>
+    <ol class="steps">
+      <li class="bg-1"><h3>1. Read</h3><p>Each day, public listing pages are read, the same ones any shopper can see. Nothing behind a login is used.</p></li>
+      <li class="bg-0"><h3>2. Compare</h3><p>Today's numbers are compared with the previous update, so you see what is moving and not just what is big.</p></li>
+      <li class="bg-3"><h3>3. Explain</h3><p>Each category gets a short read: what's selling, what's rising, and how suitable it is for a beginner.</p></li>
+    </ol>
+    <section class="note-band">
+      <p><b>These numbers are estimates.</b> Marketplaces don't publish sales, so reviews and rankings stand in for them. Use them to compare products, not as exact order counts.</p>
     </section>
   </main>
 
   <footer class="foot">
-    <h2>How This Report Works</h2>
-    <ul>
-      <li>Each day, the first page of two public Meesho listings per category is read, in Meesho's default order. Nothing behind a login is used.</li>
-      <li>Meesho doesn't publish sales. <b>All-time</b> ranks by total reviews. <b>Today</b> ranks by reviews gained since the previous update, which tracks recent sales.</li>
-      <li>Only some buyers leave reviews, so compare products with each other rather than reading the numbers as exact order counts.</li>
-    </ul>
-    <p class="fine">Independent research. Not affiliated with or endorsed by Meesho. Product names, prices and photos belong to their sellers and link to meesho.com.</p>
+    <p class="fine">BuyerMind is independent research. It is not affiliated with or endorsed by Meesho, Amazon, Flipkart or Google. Product names, prices and photos belong to their sellers.</p>
   </footer>
 
-  <script src="app.js?v=11"></script>
+  <script src="landing.js?v=12"></script>
 </body>
 </html>

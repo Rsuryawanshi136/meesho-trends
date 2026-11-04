@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Amazon Trends | BuyerMind</title>
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Daily research on what sells on Amazon India: best-seller ranks, rising products and all-time favourites in 10 departments.">
+  <meta name="description" content="Daily research on what sells on Amazon India: today's fastest sellers and all-time best sellers in 10 categories.">
   <meta name="referrer" content="no-referrer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -121,7 +121,7 @@
               <span class="tile-note" id="t-rating-note">—</span>
             </div>
             <div class="inset tile">
-              <h3>Amazon's own brands</h3>
+              <h3>1-star share</h3>
               <b class="tile-val" id="t-onestar">—</b>
               <span class="tile-note" id="t-onestar-note">—</span>
             </div>
@@ -164,7 +164,7 @@
       <section class="card wide" aria-labelledby="h-trend">
         <div class="card-head">
           <h2 id="h-trend"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>Trending now</h2>
-          <span class="muted small">Top-10 products with fewer reviews than most of their department: often newer or fast-rising</span>
+          <span class="muted small">Newer listings ranked in the top 10 of Amazon's best-seller lists</span>
         </div>
         <ol class="strip" id="strip"></ol>
       </section>
@@ -191,8 +191,8 @@
       <details>
         <summary>How this report works</summary>
         <ul>
-          <li>Every day at 9 PM, the first page of Amazon India's public Bestsellers list is read for 10 departments. Nothing behind a login is used. Bill payments and similar services are left out.</li>
-          <li>Amazon doesn't publish sales numbers. <b>Today</b> uses Amazon's own best-seller rank, which it says is based on sales. <b>All-time</b> ranks by total reviews.</li>
+          <li>Every day at 9 PM, the first page of two public Amazon Bestsellers lists per category is read, and the star breakdown of the top 10 products in each. Nothing behind a login is used. Bill payments and similar services are left out.</li>
+          <li>Amazon doesn't publish sales numbers. <b>All-time</b> ranks by total reviews. <b>Today</b> ranks by reviews gained since the previous day, which tracks daily sales.</li>
           <li>Only some buyers leave reviews, so compare products with each other rather than reading the numbers as exact order counts.</li>
         </ul>
       </details>
@@ -216,11 +216,9 @@
   <script>
     window.BM_PLATFORM = {
       name: 'Amazon', products: 'data/amazon-products.json', analysis: 'data/amazon-analysis.json',
-      rankIsSales: true, ownBrands: true,
-      categories: ["Clothing & Accessories","Shoes & Handbags","Bags & Luggage","Home & Kitchen","Beauty","Jewellery","Electronics","Health & Personal Care","Toys & Games","Sports & Fitness"],
-      styles: {"Clothing & Accessories":["c-western","#d8e8ec","#2c6474"],"Shoes & Handbags":["c-bags","#f3d3b8","#8a4a18"],"Bags & Luggage":["c-bags","#f8e0c8","#94551c"],"Home & Kitchen":["c-home","#cfe6d9","#11624f"],"Beauty":["c-beauty","#f6dbe4","#8f3a58"],"Jewellery":["c-jewel","#f8e0c8","#94551c"],"Electronics":["c-elec","#d8e8ec","#2c6474"],"Health & Personal Care":["c-health","#cfe6d9","#11624f"],"Toys & Games":["c-kids","#f6dbe4","#8f3a58"],"Sports & Fitness":["c-mens","#cfe6d9","#11624f"]},
+      rankLabel: 'best-seller rank', rankShort: 'best seller',
     };
   </script>
-  <script src="app.js?v=17"></script>
+  <script src="app.js?v=19"></script>
 </body>
 </html>

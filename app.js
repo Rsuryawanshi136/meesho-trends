@@ -1,7 +1,7 @@
 // BuyerMind report: loads one platform's daily data files and renders the bento dashboard.
 // Pages can set window.BM_PLATFORM to choose the platform; the defaults below are Meesho.
 (() => {
-  const CFG = Object.assign({ name: 'Meesho', products: 'data/products.json', analysis: 'data/analysis.json', rankIsSales: false, ownBrands: false }, window.BM_PLATFORM || {});
+  const CFG = Object.assign({ name: 'Meesho', products: 'data/products.json', analysis: 'data/analysis.json', rankLabel: 'on its page', rankShort: 'on page' }, window.BM_PLATFORM || {});
   const CATEGORIES = CFG.categories || [
     "Women's ethnic", "Women's western", "Men's clothing", 'Kids & toys', 'Home & kitchen',
     'Beauty & personal care', 'Jewellery', 'Bags & footwear', 'Electronics accessories', 'Health & fitness',
@@ -68,11 +68,9 @@
     for (const p of rows) (byDate[p.date] ??= []).push(p);
     state.byDate = byDate;
     const prev = new Map((byDate[state.prevDay] || []).map((p) => [p.pid, Number(p.reviews)]));
-    const prevRank = new Map((byDate[state.prevDay] || []).map((p) => [p.pid, Number(p.listing_rank)]));
     state.today = byDate[state.day].map((p) => ({
       ...p, reviews: Number(p.reviews), price: Number(p.price), rating: Number(p.rating),
       new_reviews: prev.has(p.pid) ? Number(p.reviews) - prev.get(p.pid) : null,
-      prev_rank: prevRank.get(p.pid) || null,
     }));
     state.hasHistory = !!state.prevDay;
 
@@ -98,7 +96,6 @@
       new_reviews: growing.length ? growing.reduce((s, p) => s + p.new_reviews, 0) : null,
       p10: q(0.1), p25: q(0.25), median: q(0.5), p75: q(0.75), p90: q(0.9),
       rating: ps.length ? ps.reduce((s, p) => s + Number(p.rating), 0) / ps.length : null,
-      own_share: ps.length ? ps.filter((p) => p.amazon_brand).length / ps.length : null,
       one_star: known.length ? known.reduce((s, p) => s + Number(p.one_star_reviews), 0) / known.reduce((s, p) => s + Number(p.reviews), 0) : null,
     };
   }
@@ -244,10 +241,7 @@
     const prevRows = state.prevDay ? state.byDate[state.prevDay] : null;
     const before = prevRows ? catStats(state.category, prevRows) : null;
     tile('t-rating', 't-rating-note', now.rating, before?.rating, (v) => v.toFixed(2) + ' ★', true, (d) => Math.abs(d).toFixed(2) + ' from yesterday', `across ${now.products} products`);
-    if (CFG.ownBrands) {
-      $('t-onestar').textContent = Math.round((now.own_share || 0) * 100) + '%';
-      $('t-onestar-note').textContent = 'of these top sellers are named as Amazon brands';
-    } else tile('t-onestar', 't-onestar-note', now.one_star, before?.one_star, (v) => (v * 100).toFixed(1) + '%', false, (d) => (Math.abs(d) * 100).toFixed(2) + ' pts from yesterday', 'lower means fewer returns');
+    tile('t-onestar', 't-onestar-note', now.one_star, before?.one_star, (v) => (v * 100).toFixed(1) + '%', false, (d) => (Math.abs(d) * 100).toFixed(2) + ' pts from yesterday', 'lower means fewer returns');
   }
 
   function tile(valId, noteId, now, before, show, higherIsGood, diffText, fallback) {
@@ -275,10 +269,7 @@
     const q = state.search.trim().toLowerCase();
     let rows = state.today.filter((p) => inScope(p) && (!q || p.name.toLowerCase().includes(q) || String(p.subcategory).toLowerCase().includes(q)));
 
-    if (state.tab === 'today' && CFG.rankIsSales) {
-      rows = rows.sort((a, b) => a.listing_rank - b.listing_rank || b.reviews - a.reviews);
-      $('list-note').textContent = `${CFG.name}'s own best-seller rank, which it bases on recent sales. Arrows show the change since the last update.`;
-    } else if (state.tab === 'today') {
+    if (state.tab === 'today') {
       if (!state.hasHistory) {
         $('list-note').textContent = 'Ranked by new reviews since yesterday: the best sign of daily sales.';
         const e = el('li', 'empty');
@@ -306,20 +297,15 @@
       a.setAttribute('aria-label', `#${i + 1} ${p.name}, ${rupee(p.price)}, show details`);
       opensSheet(a, p);
       const name = el('span', 'pname');
-      name.append(el('b', '', p.name), el('span', '', `${CFG.rankIsSales ? '' : `#${i + 1} · `}${rupee(p.price)} · ${state.category === 'All' ? p.category : p.subcategory}`));
+      name.append(el('b', '', p.name), el('span', '', `#${i + 1} · ${rupee(p.price)} · ${state.category === 'All' ? p.category : p.subcategory}`));
       const type = el('span', 'chip type');
       type.append(icon('i-bars'), document.createTextNode(p.subcategory));
-      const metric = el('span', state.tab === 'today' && !CFG.rankIsSales ? 'chip good' : 'chip');
-      metric.append(icon(state.tab === 'today' ? 'i-trend' : 'i-users'), document.createTextNode(state.tab !== 'today' ? compact.format(p.reviews) : CFG.rankIsSales ? rankText(p) : '+' + fmt.format(p.new_reviews)));
+      const metric = el('span', state.tab === 'today' ? 'chip good' : 'chip');
+      metric.append(icon(state.tab === 'today' ? 'i-trend' : 'i-users'), document.createTextNode(state.tab === 'today' ? '+' + fmt.format(p.new_reviews) : compact.format(p.reviews)));
       a.append(photo(p.image, 'thumb'), name, type, metric, ring(p.rating));
       li.append(a);
       list.append(li);
     });
-  }
-
-  function rankText(p) {
-    const move = p.prev_rank ? p.prev_rank - p.listing_rank : 0;
-    return '#' + p.listing_rank + (move > 0 ? ' ▲' + move : move < 0 ? ' ▼' + -move : '');
   }
 
   function ring(rating) {
@@ -364,7 +350,7 @@
     stat(rupee(p.price), 'price');
     stat(p.rating.toFixed(1) + ' ★', 'rating');
     if (p.one_star_reviews != null && p.reviews) stat((p.one_star_reviews / p.reviews * 100).toFixed(1) + '%', '1-star reviews');
-    stat('#' + p.listing_rank, CFG.rankIsSales ? 'best-seller rank' : 'on its page');
+    stat('#' + p.listing_rank, CFG.rankLabel);
     body.append(stats);
 
     const history = state.dates.map((d) => (state.byDate[d] || []).find((x) => x.pid === p.pid)).filter(Boolean).map((x) => Number(x.reviews));
@@ -398,7 +384,7 @@
         Demand: (x.reviews / maxRev) * 100,
         Growth: x.new_reviews == null || !maxNew ? null : (x.new_reviews / maxNew) * 100,
         Rating: clamp(((x.rating - 3.5) / 1) * 100),
-        [CFG.ownBrands ? 'Room for sellers' : 'Few complaints']: CFG.ownBrands ? clamp(100 - (x.own_share || 0) * 300) : x.one_star == null ? null : clamp(100 - x.one_star * 600),
+        'Few complaints': x.one_star == null ? null : clamp(100 - x.one_star * 600),
         Affordable: maxMed === minMed ? 50 : ((maxMed - x.median) / (maxMed - minMed)) * 100,
         'Beginner fit': FIT_SCORE[fit] ?? null,
       };
@@ -521,7 +507,7 @@
       a.setAttribute('aria-label', `${p.name}, ${rupee(p.price)}, position ${p.listing_rank}, show details`);
       opensSheet(a, p);
       const ph = photo(p.image, 'tphoto');
-      ph.append(el('span', 'pos', '#' + p.listing_rank + (CFG.rankIsSales ? ' best seller' : ' on page')));
+      ph.append(el('span', 'pos', '#' + p.listing_rank + ' ' + CFG.rankShort));
       const body = el('div', 'tbody');
       const meta = el('div', 'tmeta');
       meta.append(el('b', '', rupee(p.price)), el('span', '', compact.format(p.reviews) + ' reviews'));

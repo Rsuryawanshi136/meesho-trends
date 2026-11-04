@@ -389,3 +389,11 @@ a.market-card:hover { box-shadow: var(--shadow-lift); }
 @media (max-width: 62rem) { .info { grid-template-columns: 1fr; } }
 @media (max-width: 40rem) { .hero-actions { width: 100%; } .hero-actions a { flex: 1 1 100%; } }
 @media (prefers-reduced-motion: reduce) { .btn-soft { transition: none; } }
+
+/* Star guide */
+.star-guide { border-radius: var(--r-inset); background: var(--inset); }
+.star-guide summary { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 6px 14px; font-weight: 600; font-size: .9rem; cursor: pointer; border-radius: var(--r-inset); }
+.star-mark { color: var(--label); font-size: 1.05rem; line-height: 1; }
+.star-guide dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 12px; margin: 0; padding: 2px 14px 14px; }
+.star-guide dt { font-weight: 600; font-size: .85rem; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.star-guide dd { margin: 0; font-size: .82rem; line-height: 1.45; color: var(--muted); }

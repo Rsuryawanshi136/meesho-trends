@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=17">
   <script>
     // Older links pointed at the Meesho report on this address.
     if (/^#(today|alltime)/.test(location.hash)) location.replace('meesho.html' + location.hash);
@@ -28,7 +28,7 @@
     </a>
     <nav class="links" aria-label="Sections">
       <a href="#about">About</a>
-      <a href="#marketplaces">Marketplaces</a>
+      <a href="#marketplaces">Platforms</a>
       <a href="#how">How It Works</a>
     </nav>
   </header>
@@ -39,7 +39,7 @@
       <h1>Know What's Selling<br>Before You Invest.</h1>
       <p class="hero-sub">Don't guess what to sell. BuyerMind shows you which products Indian shoppers are choosing right now, and explains what that means for you in plain language.</p>
       <div class="hero-actions">
-        <a class="btn" href="meesho.html">See Today's Top Sellers</a>
+        <a class="btn" href="#marketplaces">Choose a Platform</a>
         <a class="btn-soft" href="#about">How It Helps</a>
       </div>
       <div class="collage" id="collage" aria-hidden="true"></div>
@@ -82,9 +82,9 @@
     </div>
 
     <section class="head" id="marketplaces">
-      <p class="eyebrow">Marketplaces</p>
-      <h2>Pick Where You Want to Look</h2>
-      <p class="head-sub">Each marketplace has its own report, because their numbers aren't directly comparable.</p>
+      <p class="eyebrow">Platforms</p>
+      <h2>Which Platform Do You Want a Report On?</h2>
+      <p class="head-sub">Each platform has its own report, because their numbers aren't directly comparable.</p>
     </section>
 
     <ul class="markets">
@@ -98,28 +98,22 @@
         </a>
       </li>
       <li>
-        <div class="market-card tint-peach">
-          <span class="status">Coming next</span>
+        <a class="market-card tint-peach" href="amazon.html">
+          <span class="status live">Live, updated daily</span>
           <h3>Amazon India</h3>
-          <p>Amazon's own best-seller rankings, tracked daily to show which products are climbing.</p>
-        </div>
+          <p>Amazon's own best-seller ranks in 10 departments, with a plain-language read of each.</p>
+          <p class="market-top" id="amazon-top" hidden></p>
+          <span class="btn">Open Amazon Report</span>
+        </a>
       </li>
       <li>
         <div class="market-card tint-blue">
-          <span class="status">Planned</span>
+          <span class="status">Coming next</span>
           <h3>Flipkart</h3>
           <p>Popular products, ratings and price levels across the main categories.</p>
         </div>
       </li>
-      <li>
-        <a class="market-card tint-pink" href="google.html">
-          <span class="status live">Live, prices only</span>
-          <h3>Google Shopping</h3>
-          <p>Typical prices, discounts and the stores listed in 10 categories, to help you see where your product could sit. It shows prices, not sales.</p>
-          <span class="btn">Open Price Report</span>
-        </a>
-      </li>
-    </ul>
+      </ul>
 
     <section class="head" id="how">
       <p class="eyebrow">How It Works</p>
@@ -136,9 +130,9 @@
   </main>
 
   <footer class="wrap land-foot">
-    <p>BuyerMind is independent research. It is not affiliated with or endorsed by Meesho, Amazon, Flipkart or Google. Product names, prices and photos belong to their sellers.</p>
+    <p>BuyerMind is independent research. It is not affiliated with or endorsed by Meesho, Amazon or Flipkart. Product names, prices and photos belong to their sellers.</p>
   </footer>
 
-  <script src="landing.js?v=15"></script>
+  <script src="landing.js?v=18"></script>
 </body>
 </html>

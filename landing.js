@@ -1,4 +1,4 @@
-// BuyerMind landing page: fills the photo collage and the Meesho card from the latest Meesho data.
+// BuyerMind landing page: fills the photo collage and the live platform cards from the latest data.
 (async () => {
   try {
     const rows = await fetch('data/products.json?v=' + Date.now().toString(36)).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
@@ -27,6 +27,17 @@
       const el = document.getElementById('meesho-top');
       const date = new Date(day + 'T00:00:00Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', timeZone: 'UTC' });
       el.textContent = `${date}: ${top.name}${top.gain != null ? `, +${fmt.format(top.gain)} new reviews` : ''}`;
+      el.hidden = false;
+    }
+
+    // Amazon card: the top best seller, by rank then reviews.
+    const az = await fetch('data/amazon-products.json?v=' + Date.now().toString(36)).then((r) => (r.ok ? r.json() : []));
+    const azDay = az.reduce((m, p) => (p.date > m ? p.date : m), '');
+    const azTop = az.filter((p) => p.date === azDay).sort((a, b) => a.listing_rank - b.listing_rank || Number(b.reviews) - Number(a.reviews))[0];
+    if (azTop) {
+      const el = document.getElementById('amazon-top');
+      const date = new Date(azDay + 'T00:00:00Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+      el.textContent = `${date}: ${azTop.name}, #${azTop.listing_rank} in ${azTop.category}`;
       el.hidden = false;
     }
   } catch (err) {

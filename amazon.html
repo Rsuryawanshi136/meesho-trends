@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Amazon Trends | BuyerMind</title>
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Daily research on what sells on Amazon India: best-seller ranks, rising products and all-time favourites in 10 departments.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css?v=17">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 19c.6-3.3 3.3-5 6.5-5s5.9 1.7 6.5 5"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 14.2c2.6.2 4.4 1.7 5 4.3"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-6-4-6 4z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><path d="M6 19v-5M12 19V9M18 19V5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4h8.5l8.5 8.5-8.5 8.5z"/><circle cx="8" cy="8.5" r="1.4"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V6M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0012 3z"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 19V7.5A1.5 1.5 0 015.5 6H10"/></symbol>
+    <!-- category icons -->
+    <symbol id="c-ethnic" viewBox="0 0 24 24"><path d="M9 3h6l1.5 4-2 1.5L17 21H7l2.5-12.5-2-1.5z"/></symbol>
+    <symbol id="c-western" viewBox="0 0 24 24"><path d="M8 3l-4 3 2 4 2-1v12h8V9l2 1 2-4-4-3c-.5 1.7-2 2.5-4 2.5S8.5 4.7 8 3z"/></symbol>
+    <symbol id="c-mens" viewBox="0 0 24 24"><path d="M9 3l3 3 3-3 5 3-2 4-2-1v12H8V9l-2 1-2-4z"/><path d="M12 6v15"/></symbol>
+    <symbol id="c-kids" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c.5-4 3.2-6 7-6s6.5 2 7 6"/></symbol>
+    <symbol id="c-home" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/></symbol>
+    <symbol id="c-beauty" viewBox="0 0 24 24"><rect x="9" y="10" width="6" height="11" rx="1.5"/><path d="M10 10V6l4-3v7"/></symbol>
+    <symbol id="c-jewel" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 5 3-5"/></symbol>
+    <symbol id="c-bags" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2.5"/><path d="M9 8V6a3 3 0 016 0v2"/></symbol>
+    <symbol id="c-elec" viewBox="0 0 24 24"><path d="M5 13a7 7 0 0114 0"/><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></symbol>
+    <symbol id="c-health" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z"/><path d="M8 12h2.5l1-2 2 4 1-2H16"/></symbol>
+  </svg>
+
+  <div class="frame">
+    <header class="top">
+      <a class="brand" href="./" aria-label="BuyerMind, all marketplaces">
+        <span class="brand-mark" aria-hidden="true"><svg class="ic"><use href="#i-trend"/></svg></span>
+        <div>
+          <h1>Amazon Trends</h1>
+          <p class="sub" id="updated">Loading today's data…</p>
+        </div>
+      </a>
+      <label class="select-pill">
+        <span class="sr">Category</span>
+        <svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg>
+        <select id="category"></select>
+      </label>
+    </header>
+
+    <section class="takeaway" aria-label="Today's takeaway">
+      <span class="takeaway-icon" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg></span>
+      <p id="takeaway">—</p>
+    </section>
+
+    <main class="bento">
+      <!-- 1. Demand -->
+      <section class="card" id="overview" aria-labelledby="h-demand">
+        <div class="card-head">
+          <h2 id="h-demand"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Buyer reviews</h2>
+          <a class="pill-dark" href="#products">See products</a>
+        </div>
+        <div class="kpi">
+          <div>
+            <b class="big" id="k-reviews">—</b>
+            <span class="muted" id="k-reviews-sub">reviews on top listings</span>
+          </div>
+          <p class="delta" id="k-delta">—</p>
+        </div>
+        <div class="range" aria-label="Price range">
+          <div class="range-bar"><i id="range-fill"></i><span class="range-mark" id="range-mark"></span></div>
+          <span class="range-lo" id="range-lo">—</span>
+          <span class="range-hi" id="range-hi">—</span>
+        </div>
+        <p class="muted small" id="range-note">—</p>
+        <div class="inset activity">
+          <div class="legend"><span><i class="d0"></i>No run</span><span><i class="d1"></i>Collected</span><span><i class="d3"></i>Growing fast</span></div>
+          <div class="activity-body">
+            <h3>Daily review <br>activity</h3>
+            <div class="dots-wrap">
+              <div class="dots-months" id="dot-months"></div>
+              <div class="dots" id="dots" role="img" aria-label="Daily review activity by category"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Categories -->
+      <section class="card" id="categories" aria-labelledby="h-cats">
+        <div class="card-head">
+          <h2 id="h-cats"><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg>Categories</h2>
+          <label class="search">
+            <span class="sr">Search products</span>
+            <input id="search" type="search" placeholder="Search product…" autocomplete="off">
+            <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+          </label>
+        </div>
+        <div class="cat-grid">
+          <div class="inset">
+            <div class="inset-head">
+              <h3>Top categories</h3>
+              <span class="muted small" id="cat-count">—</span>
+            </div>
+            <ol class="cat-list" id="cat-list"></ol>
+          </div>
+          <div class="tiles">
+            <div class="inset tile">
+              <h3>Average rating</h3>
+              <b class="tile-val" id="t-rating">—</b>
+              <span class="tile-note" id="t-rating-note">—</span>
+            </div>
+            <div class="inset tile">
+              <h3>Amazon's own brands</h3>
+              <b class="tile-val" id="t-onestar">—</b>
+              <span class="tile-note" id="t-onestar-note">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Products -->
+      <section class="card" id="products" aria-labelledby="h-products">
+        <div class="card-head">
+          <h2 id="h-products"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg>Top products</h2>
+          <div class="seg" id="seg" data-active="today" role="tablist" aria-label="Time range">
+            <span class="seg-thumb" aria-hidden="true"></span>
+            <button role="tab" data-tab="today" aria-selected="true">Today</button>
+            <button role="tab" data-tab="alltime" aria-selected="false">All-time</button>
+          </div>
+        </div>
+        <p class="muted small" id="list-note">—</p>
+        <ol class="plist" id="plist"></ol>
+      </section>
+
+      <!-- 4. Health -->
+      <section class="card" id="health" aria-labelledby="h-health">
+        <div class="card-head">
+          <h2 id="h-health"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Category health</h2>
+          <span class="pill-soft" id="health-cat">All categories</span>
+        </div>
+        <div class="health">
+          <div class="flower" id="flower" role="img" aria-label="Category health scores"></div>
+          <aside class="insight" id="insight">
+            <span class="insight-title"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg>Insight:</span>
+            <p id="insight-text">—</p>
+            <span class="fit" id="insight-fit"></span>
+          </aside>
+        </div>
+        <p class="muted small">Scores out of 100, compared with the other categories. Higher is better for a beginner.</p>
+      </section>
+
+      <!-- 5. Trending -->
+      <section class="card wide" aria-labelledby="h-trend">
+        <div class="card-head">
+          <h2 id="h-trend"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>Trending now</h2>
+          <span class="muted small">Top-10 products with fewer reviews than most of their department: often newer or fast-rising</span>
+        </div>
+        <ol class="strip" id="strip"></ol>
+      </section>
+
+      <!-- 6. Plan -->
+      <section class="card" aria-labelledby="h-short">
+        <div class="card-head"><h2 id="h-short"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Beginner shortlist</h2></div>
+        <ul class="checks" id="shortlist"></ul>
+        <p class="avoid" id="avoid"></p>
+      </section>
+      <section class="card" aria-labelledby="h-cal">
+        <div class="card-head"><h2 id="h-cal"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Coming up</h2></div>
+        <ol class="calendar">
+          <li><time>6 Nov</time><span><b>Dhanteras</b>Utensils, pooja items, gifting</span></li>
+          <li><time>8 Nov</time><span><b>Diwali</b>Diyas, candles, lights, decor, ethnic wear</span></li>
+          <li><time>10–11 Nov</time><span><b>Bhai Dooj</b>Gift sets and hampers</span></li>
+          <li><time>13–16 Nov</time><span><b>Chhath Puja</b>Chunri and bandhani sarees, pooja items</span></li>
+          <li><time>Late Nov</time><span><b>Weddings &amp; winter</b>Jewellery sets, lehengas, hoodies, thermals</span></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <details>
+        <summary>How this report works</summary>
+        <ul>
+          <li>Every day at 9 PM, the first page of Amazon India's public Bestsellers list is read for 10 departments. Nothing behind a login is used. Bill payments and similar services are left out.</li>
+          <li>Amazon doesn't publish sales numbers. <b>Today</b> uses Amazon's own best-seller rank, which it says is based on sales. <b>All-time</b> ranks by total reviews.</li>
+          <li>Only some buyers leave reviews, so compare products with each other rather than reading the numbers as exact order counts.</li>
+        </ul>
+      </details>
+      <p>BuyerMind is independent research. Not affiliated with or endorsed by Amazon. Product names, prices and photos belong to their sellers and link to amazon.in.</p>
+    </footer>
+  </div>
+
+  <nav class="dock" aria-label="Sections">
+    <a href="#overview" data-dock="overview"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Reviews</a>
+    <a href="#categories" data-dock="categories"><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg>Categories</a>
+    <a href="#products" data-dock="products"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg>Products</a>
+    <a href="#health" data-dock="health"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Health</a>
+  </nav>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-name">
+    <div class="sheet-grip" aria-hidden="true"></div>
+    <button class="sheet-close" id="sheet-close" type="button" aria-label="Close product details">✕</button>
+    <div id="sheet-body"></div>
+  </dialog>
+
+  <script>
+    window.BM_PLATFORM = {
+      name: 'Amazon', products: 'data/amazon-products.json', analysis: 'data/amazon-analysis.json',
+      rankIsSales: true, ownBrands: true,
+      categories: ["Clothing & Accessories","Shoes & Handbags","Bags & Luggage","Home & Kitchen","Beauty","Jewellery","Electronics","Health & Personal Care","Toys & Games","Sports & Fitness"],
+      styles: {"Clothing & Accessories":["c-western","#d8e8ec","#2c6474"],"Shoes & Handbags":["c-bags","#f3d3b8","#8a4a18"],"Bags & Luggage":["c-bags","#f8e0c8","#94551c"],"Home & Kitchen":["c-home","#cfe6d9","#11624f"],"Beauty":["c-beauty","#f6dbe4","#8f3a58"],"Jewellery":["c-jewel","#f8e0c8","#94551c"],"Electronics":["c-elec","#d8e8ec","#2c6474"],"Health & Personal Care":["c-health","#cfe6d9","#11624f"],"Toys & Games":["c-kids","#f6dbe4","#8f3a58"],"Sports & Fitness":["c-mens","#cfe6d9","#11624f"]},
+    };
+  </script>
+  <script src="app.js?v=17"></script>
+</body>
+</html>

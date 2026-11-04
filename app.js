@@ -241,7 +241,7 @@
     const prevRows = state.prevDay ? state.byDate[state.prevDay] : null;
     const before = prevRows ? catStats(state.category, prevRows) : null;
     tile('t-rating', 't-rating-note', now.rating, before?.rating, (v) => v.toFixed(2) + ' ★', true, (d) => Math.abs(d).toFixed(2) + ' from yesterday', `across ${now.products} products`);
-    tile('t-onestar', 't-onestar-note', now.one_star, before?.one_star, (v) => (v * 100).toFixed(1) + '%', false, (d) => (Math.abs(d) * 100).toFixed(2) + ' pts from yesterday', 'lower means fewer returns');
+    tile('t-onestar', 't-onestar-note', now.one_star, before?.one_star, (v) => (v * 100).toFixed(1) + '%', false, (d) => (Math.abs(d) * 100).toFixed(2) + ' pts from yesterday', 'high shares often mean returns');
   }
 
   function tile(valId, noteId, now, before, show, higherIsGood, diffText, fallback) {

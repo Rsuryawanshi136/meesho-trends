@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -116,12 +116,12 @@
           </div>
           <div class="tiles">
             <div class="inset tile">
-              <h3>Average rating</h3>
+              <div class="tile-head"><h3>Average rating</h3><p class="tile-help">The average score buyers give, from 1 to 5 stars. Higher is better.</p></div>
               <b class="tile-val" id="t-rating">—</b>
               <span class="tile-note" id="t-rating-note">—</span>
             </div>
             <div class="inset tile">
-              <h3>1-star share</h3>
+              <div class="tile-head"><h3>1-star share</h3><p class="tile-help">Out of every 100 reviews, how many gave the lowest score. Lower is better.</p></div>
               <b class="tile-val" id="t-onestar">—</b>
               <span class="tile-note" id="t-onestar-note">—</span>
             </div>
@@ -227,6 +227,6 @@
       rankLabel: 'best-seller rank', rankShort: 'best seller',
     };
   </script>
-  <script src="app.js?v=19"></script>
+  <script src="app.js?v=21"></script>
 </body>
 </html>

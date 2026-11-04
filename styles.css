@@ -397,3 +397,7 @@ a.market-card:hover { box-shadow: var(--shadow-lift); }
 .star-guide dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 12px; margin: 0; padding: 2px 14px 14px; }
 .star-guide dt { font-weight: 600; font-size: .85rem; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
 .star-guide dd { margin: 0; font-size: .82rem; line-height: 1.45; color: var(--muted); }
+
+/* Plain-language help inside tiles */
+.tile-head { display: grid; gap: 3px; }
+.tile-help { font-size: .78rem; line-height: 1.4; color: var(--muted); }

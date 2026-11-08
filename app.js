@@ -4,7 +4,7 @@
   const CFG = Object.assign({ name: 'Meesho', products: 'data/products.json', analysis: 'data/analysis.json', rankLabel: 'on its page', rankShort: 'on page' }, window.BM_PLATFORM || {});
   const CATEGORIES = CFG.categories || [
     "Women's ethnic", "Women's western", "Men's clothing", 'Kids & toys', 'Home & kitchen',
-    'Beauty & personal care', 'Jewellery', 'Bags & footwear', 'Electronics accessories', 'Health & fitness',
+    'Beauty & personal care', 'Jewellery', 'Bags & footwear', 'Electronics accessories', 'Health & fitness', 'Wall shelves',
   ];
   const CAT_STYLE = CFG.styles || {
     "Women's ethnic": ['c-ethnic', '#f6dbe4', '#8f3a58'],
@@ -17,6 +17,7 @@
     'Bags & footwear': ['c-bags', '#f3d3b8', '#8a4a18'],
     'Electronics accessories': ['c-elec', '#d8e8ec', '#2c6474'],
     'Health & fitness': ['c-health', '#cfe6d9', '#11624f'],
+    'Wall shelves': ['c-home', '#f3d3b8', '#8a4a18'],
   };
   const FIT_SCORE = { good: 90, mid: 55, hard: 25 };
 
